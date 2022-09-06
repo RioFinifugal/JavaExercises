@@ -8,23 +8,24 @@ class Solution
         String last = "";
         //i will be the first parentheses, j the second
         //i and j gets increased by 2 to jump from a set of parentheses to the next
-        for(int i = 0, j= 1; i<s.length();i=i+2, j=j+2)
+        for(int i = 0, j= 1; j<s.length();i++, j++)
         {
-            first = first + s.charAt(i);
-            last = last + s.charAt(j);
-            if(first == "{" && last != "}")
+            first = first + s.charAt(i) + s.charAt(j);
+            System.out.println(first);
+            if(first!="()")
             {
-                validity = false;
+                return false;
             }
-            else if(first== "(" && last != ")")
+            else if(first!="{}")
             {
-                validity = false;
+                return false;
             }
-            else if(first == "[" && last != "]")
+            else if(first!="[]")
             {
-                validity = false;
+                return false;
             }
+            first = "";
         }
-        return validity;
+    return false;
     }
 }
