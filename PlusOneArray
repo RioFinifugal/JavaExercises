@@ -1,0 +1,23 @@
+class Solution 
+{
+    public int[] plusOne(int[] digits) 
+    {
+        int result = 0;
+        int offset = 1;
+        for(int i = digits.length - 1; i >= 0; i--) {
+            result += digits[i]*offset;
+            offset *= 10;
+        }
+        result++;
+        String temp = Integer.toString(result);
+        int[] newGuess = new int[temp.length()];
+        for (int i = 0; i < temp.length(); i++)
+        {
+            //very important!!!!
+            //to get the number you have to substract it with the 
+            //ASCII position '0'
+            newGuess[i] = temp.charAt(i) - '0';
+        }
+    return newGuess;
+    }
+}
