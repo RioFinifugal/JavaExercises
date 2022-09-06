@@ -1,0 +1,31 @@
+class Solution {
+    public boolean isPalindrome(int x) 
+    {
+        //get length of number for loop
+        int numDigits = String.valueOf(x).length();
+        //convert string so that I can invert
+        String strI = Integer.toString(x);
+        //position of char at string 
+        int position = numDigits-1;
+        //temp String to store inverted number
+        String temp = "";
+        
+        for(int i = 0; i<numDigits;i++)
+        {
+            //get char at the last position and count down from there
+            temp = temp + strI.charAt(position);
+            position--;
+        }
+        //parse back to int
+        int resultInverted = Integer.parseInt(temp);
+        //if inverted = asked, true, else false
+        if(resultInverted == x)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
