@@ -1,0 +1,30 @@
+class Solution 
+{
+    public boolean isValid(String s) 
+    {
+        boolean validity = true;
+        //Strings where parentheses will be stored
+        String first = "";
+        String last = "";
+        //i will be the first parentheses, j the second
+        //i and j gets increased by 2 to jump from a set of parentheses to the next
+        for(int i = 0, j= 1; i<s.length();i=i+2, j=j+2)
+        {
+            first = first + s.charAt(i);
+            last = last + s.charAt(j);
+            if(first == "{" && last != "}")
+            {
+                validity = false;
+            }
+            else if(first== "(" && last != ")")
+            {
+                validity = false;
+            }
+            else if(first == "[" && last != "]")
+            {
+                validity = false;
+            }
+        }
+        return validity;
+    }
+}
