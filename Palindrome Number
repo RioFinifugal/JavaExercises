@@ -1,6 +1,11 @@
-class Solution {
+class Solution 
+{
     public boolean isPalindrome(int x) 
     {
+        if(x<0)
+        {
+            return false;
+        }
         //get length of number for loop
         int numDigits = String.valueOf(x).length();
         //convert string so that I can invert
@@ -16,10 +21,8 @@ class Solution {
             temp = temp + strI.charAt(position);
             position--;
         }
-        //parse back to int
-        int resultInverted = Integer.parseInt(temp);
         //if inverted = asked, true, else false
-        if(resultInverted == x)
+        if(temp.equals(strI))
         {
             return true;
         }
