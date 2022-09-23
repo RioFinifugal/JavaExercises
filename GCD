@@ -1,0 +1,15 @@
+import java.util.ArrayList;
+
+public static void main(String[] args) 
+{
+  int[] array = {2, 4};
+  ArrayList<Integer> divisors = new ArrayList<Integer>();
+  for(int counter = 1; counter <= array[1]; counter++)
+  {
+    if(array[0] % counter == 0 && array[1] % counter == 0)
+    {
+      divisors.add(counter);
+    }
+  }
+  System.out.println("Biggest divisior : " + divisors.get(divisors.size()-1));
+}
