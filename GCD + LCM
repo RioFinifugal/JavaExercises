@@ -1,18 +1,19 @@
-	public static void main(String[] args) 
-	{
-		int min = 27, max = 81;
-		int[] array = {min, max};
-		while(array[0]!=array[1])   
-		{  
-			if(array[0]>array[1])
-			{
-				array[0]=array[0]-array[1];  
-			}
-			else  
-			{
-				array[1]=array[1]-array[0];  
-			}
-		}  
-		System.out.println("GCD : " + array[1]);
-		int[] arrayLcm = {min, max};
-		System.out.println("LCM : " + arrayLcm[0] * arrayLcm[1] / array[1]);
+public static void main(String[] args) 
+{
+	int min = 27, max = 81;
+	int[] array = {min, max};
+	while(array[0]!=array[1])   
+	{  
+		if(array[0]>array[1])
+		{
+			array[0]=array[0]-array[1];  
+		}
+		else  
+		{
+			array[1]=array[1]-array[0];  
+		}
+	}  
+	System.out.println("GCD : " + array[1]);
+	int[] arrayLcm = {min, max};
+	System.out.println("LCM : " + arrayLcm[0] * arrayLcm[1] / array[1]);
+}
