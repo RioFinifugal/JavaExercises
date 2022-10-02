@@ -32,7 +32,7 @@
 	        	counter++;
 	        	if(counter == 10001)
 	        	{
-		        	sum += i; 
+		        	return i;
 	        	}
 	        }
 	    }
