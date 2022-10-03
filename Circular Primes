@@ -1,0 +1,53 @@
+public static boolean[] simpleSieve(int n)
+{
+    boolean[] sieve = new boolean[n+1]; 
+    sieve[0] = true; sieve[1] = true; sieve[2] = false;
+
+    for(int i = 4; i <= n; i+=2)
+    { 
+      sieve[i] = true; 
+    }
+    long limit = (int)Math.sqrt(n)+1;
+    for(int i = 3; i < limit; i+=2)
+    {
+        if(!sieve[i])
+        {
+            for(int j = i*i; j <= n; j+=i) 
+            { 
+              sieve[j] = true; 
+            }
+        }
+    }
+    return sieve;
+}
+public static int sumOfPrimes(int n)
+{
+    boolean[] primes = simpleSieve(n);
+    int counter = 0;
+    for(int i = 0; i < primes.length; i++)
+    {
+      boolean test = true;
+        if(!primes[i])
+        { 
+          String prime = String.valueOf(i);
+          for(int j = 0; j < prime.length();j++)
+          {
+            String comparePrime = prime.substring(j) + prime.substring(0, j);
+            int comparePrimeInt = Integer.parseInt(comparePrime);
+            if(primes[comparePrimeInt])
+            { 
+              test = false;
+            }
+          }
+          if(test)
+          {
+            counter++;
+          }
+        }
+    }
+    return counter;
+}
+public static void main(String[] args)
+{
+    System.out.println(sumOfPrimes(1000000));
+}
